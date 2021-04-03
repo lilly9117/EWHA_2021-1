@@ -1,0 +1,125 @@
+---
+title: "timeseries_hw1_2"
+output:
+  word_document: default
+  pdf_document: default
+---
+
+## phi = - 0.8
+
+시도표
+
+```{r}
+# phi = -0.8
+set.seed(1)
+
+n = 1000
+a = rnorm(n, mean = 0, sd = 5)
+y1 = rep(n+1,0)
+mu = 10
+y1[1] = mu
+
+phi = -0.8
+for (t in 1:n){
+  y1[t+1] = mu + phi*(y1[t]-mu) + a[t]
+}
+plot(y1,type="o", ann = FALSE)
+title(main = 'phi = -0.8', ylab = 'yt')
+```
+
+평균
+```{r}
+mean(y1)
+```
+
+분산
+```{r}
+var(y1)
+```
+
+ACF
+```{r}
+acf(y1)
+```
+
+PACF
+```{r}
+pacf(y1)
+```
+
+## phi = 0.8
+
+시도표
+
+```{r}
+# phi = 0.8
+
+y2 = rep(n+1,0)
+y2[1] = mu
+
+phi = 0.8
+for (t in 1:n){
+  y2[t+1] = mu + phi*(y2[t]-mu) + a[t]
+}
+plot(y2,type="o", ann = FALSE)
+title(main = 'phi = 0.8', ylab = 'yt')
+```
+
+평균
+```{r}
+mean(y2)
+```
+
+분산
+```{r}
+var(y2)
+```
+
+ACF
+```{r}
+acf(y2)
+```
+
+PACF
+```{r}
+pacf(y2)
+```
+
+## phi = 1
+
+시도표
+
+```{r}
+# phi = -1
+
+y3 = rep(n+1,0)
+y3[1] = mu
+
+phi = 1
+for (t in 1:n){
+  y3[t+1] = mu + phi*(y3[t]-mu) + a[t]
+}
+plot(y3,type="o", ann = FALSE)
+title(main = 'phi = 1', ylab = 'yt')
+```
+
+평균 = 9.970886
+```{r}
+mean(y3)
+```
+
+분산 = 69.22028
+```{r}
+var(y3)
+```
+
+ACF
+```{r}
+acf(y3)
+```
+
+PACF
+```{r}
+pacf(y3)
+```
+
